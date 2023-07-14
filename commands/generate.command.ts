@@ -50,7 +50,7 @@ export class GenerateCommand extends AbstractCommand {
       )
       .option(
           '--case [case]',
-          'Case for variable naming. Options are camelCase, kebap-case.',
+          'Case for variable naming. Options are \'kebab\' | \'snake\' | \'camel\' | \'pascal\' | \'upper\'.',
       )
       .action(
         async (
@@ -101,7 +101,7 @@ export class GenerateCommand extends AbstractCommand {
             name: 'case',
             value: command.case,
           });
-          
+
           const inputs: Input[] = [];
           inputs.push({ name: 'schematic', value: schematic });
           inputs.push({ name: 'name', value: name });

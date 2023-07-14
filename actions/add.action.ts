@@ -19,7 +19,7 @@ import {
   shouldAskForProject,
 } from '../lib/utils/project-utils';
 import { AbstractAction } from './abstract.action';
-import {CaseType} from "../lib/utils/formatting";
+import { CaseType } from '../lib/utils/formatting';
 
 const schematicName = 'nest-add';
 

@@ -19,7 +19,7 @@ import {
   shouldGenerateSpec,
 } from '../lib/utils/project-utils';
 import { AbstractAction } from './abstract.action';
-import { CaseType } from "../lib/utils/formatting";
+import { CaseType } from '../lib/utils/formatting';
 
 export class GenerateAction extends AbstractAction {
   public async handle(inputs: Input[], options: Input[]) {
