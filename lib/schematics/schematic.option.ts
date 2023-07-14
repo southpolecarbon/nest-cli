@@ -1,10 +1,10 @@
-import { normalizeToKebabOrSnakeCase } from '../utils/formatting';
+import { normalizeToCase, formatString, CaseType } from '../utils/formatting';
 
 export class SchematicOption {
-  constructor(private name: string, private value: boolean | string) {}
+  constructor(private name: string, private value: boolean | string, private caseType: CaseType) {}
 
   get normalizedName() {
-    return normalizeToKebabOrSnakeCase(this.name);
+    return normalizeToCase(this.name, 'kebab');
   }
 
   public toCommandString(): string {
@@ -25,13 +25,17 @@ export class SchematicOption {
   }
 
   private format() {
-    return normalizeToKebabOrSnakeCase(this.value as string)
-      .split('')
-      .reduce((content, char) => {
-        if (char === '(' || char === ')' || char === '[' || char === ']') {
-          return `${content}\\${char}`;
-        }
-        return `${content}${char}`;
-      }, '');
+    const formattedString =
+        formatString(normalizeToCase(
+            this.value as string,
+            this.caseType
+            )
+        );
+
+    console.log({ source: this.value, formattedString, caseType: this.caseType });
+
+    return formattedString;
   }
 }
+
+
