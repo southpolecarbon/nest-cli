@@ -100,7 +100,7 @@ describe('Schematic Option', () => {
 
   tests.forEach((test) => {
     it(test.description, () => {
-      const option = new SchematicOption(test.option, test.input);
+      const option = new SchematicOption(test.option, test.input, 'kebab');
 
       if (isFlagTest(test)) {
         if (test.input) {
@@ -117,7 +117,7 @@ describe('Schematic Option', () => {
   });
 
   it('should manage boolean option', () => {
-    const option = new SchematicOption('dry-run', false);
+    const option = new SchematicOption('dry-run', false, 'kebab');
     expect(option.toCommandString()).toEqual('--no-dry-run');
   });
 });
