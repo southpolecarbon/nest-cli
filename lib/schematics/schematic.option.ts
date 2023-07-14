@@ -25,16 +25,13 @@ export class SchematicOption {
   }
 
   private format() {
-    const formattedString =
-        formatString(normalizeToCase(
+
+    return formatString(
+        normalizeToCase(
             this.value as string,
             this.caseType
-            )
-        );
-
-    console.log({ source: this.value, formattedString, caseType: this.caseType });
-
-    return formattedString;
+        )
+    );
   }
 }
 
