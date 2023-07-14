@@ -48,6 +48,10 @@ export class GenerateCommand extends AbstractCommand {
         '-c, --collection [collectionName]',
         'Schematics collection to use.',
       )
+      .option(
+          '--case [case]',
+          'Case for variable naming. Options are \'kebab\' | \'snake\' | \'camel\' | \'pascal\' | \'upper\'.',
+      )
       .action(
         async (
           schematic: string,
@@ -91,6 +95,11 @@ export class GenerateCommand extends AbstractCommand {
           options.push({
             name: 'skipImport',
             value: command.skipImport,
+          });
+
+          options.push({
+            name: 'case',
+            value: command.case,
           });
 
           const inputs: Input[] = [];
